@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `amd64` builds of [the `groovy` official image](https://hub.docker.com/_/groovy) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -30,6 +32,8 @@ WARNING:
 -	[`4.0.0-beta-2-jdk8`, `4.0.0-jdk8`, `4.0-jdk8`](https://github.com/groovy/docker-groovy/blob/90f949922ebe0807d6cafbe1e0259922d5c2a469/jdk8/Dockerfile)
 -	[`4.0.0-beta-2-jdk11`, `4.0.0-jdk11`, `4.0-jdk11`](https://github.com/groovy/docker-groovy/blob/90f949922ebe0807d6cafbe1e0259922d5c2a469/jdk11/Dockerfile)
 -	[`4.0.0-beta-2-jdk17`, `4.0.0-jdk17`, `4.0-jdk17`, `4.0.0-beta-2-jdk`, `4.0.0-jdk`, `4.0.0-beta-2`, `4.0.0`, `4.0`, `4`](https://github.com/groovy/docker-groovy/blob/90f949922ebe0807d6cafbe1e0259922d5c2a469/jdk17/Dockerfile)
+
+[![amd64/groovy build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/amd64/job/groovy.svg?label=amd64/groovy%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/groovy/)
 
 # Quick reference (cont.)
 
@@ -66,7 +70,7 @@ Note that if you are mounting a volume and the uid running Docker is not `1000`,
 
 ## Running a Groovy script
 
-`docker run --rm -v "$PWD":/home/groovy/scripts -w /home/groovy/scripts groovy groovy <script> <script-args>`
+`docker run --rm -v "$PWD":/home/groovy/scripts -w /home/groovy/scripts amd64/groovy groovy <script> <script-args>`
 
 ## Reusing the Grapes cache
 
@@ -74,7 +78,7 @@ The local Grapes cache can be reused across containers by creating a volume and 
 
 ```console
 docker volume create --name grapes-cache
-docker run --rm -it -v grapes-cache:/home/groovy/.groovy/grapes groovy
+docker run --rm -it -v grapes-cache:/home/groovy/.groovy/grapes amd64/groovy
 ```
 
 # License
